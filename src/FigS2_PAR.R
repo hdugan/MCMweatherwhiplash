@@ -28,7 +28,7 @@ p1 = ggplot(dt3) +
   geom_ribbon(aes(x = dateTime, ymin = par.min, ymax = par.max), fill = 'gold3') +
   geom_path(aes(x = dateTime, y = par.mean)) +
   geom_vline(aes(xintercept = as.Date('1994-03-18')), linetype = 2) +
-  ylab('PAR (µmol/s/m2)') +
+  ylab("PAR"~(µmol~s^-1~m^-2)) +
   scale_x_date(date_labels = '%b') +
   theme_bw(base_size = 9) +
   theme(axis.title.x = element_blank())
@@ -59,7 +59,8 @@ p2 = ggplot(sun) +
   theme(axis.title.x = element_blank())
 
 ######### Join Figures ######### 
-p1 + p2 + plot_annotation(title = 'Lake Fryxell')
+p1 + p2 + plot_annotation(tag_levels = "a", tag_suffix = ")") &
+  theme(plot.tag = element_text(size  = 8))
 
-ggsave('figures/FigS2_LF_PAR.png', width = 6, height = 3)
-
+ggsave('figures/FigS2_LF_PAR.png', width = 6, height = 2.5, dpi = 500)
+ 
