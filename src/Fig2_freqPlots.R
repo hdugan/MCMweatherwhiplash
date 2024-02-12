@@ -71,6 +71,7 @@ makeTempplot <- function(url, title = NULL) {
     scale_fill_manual(values = c('#132E32', '#176087', '#53A2BE'), 
                                  labels = c('0°C','4°C','7°C')) +
     ylab('Frequency days daily max\ntemp > given degree (°C)') +
+    ylim(0,0.85) +
     scale_x_date(date_labels = '%b') +
     theme_bw(base_size = 9) +
     theme(axis.title.x = element_blank(), 
